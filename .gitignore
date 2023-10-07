@@ -1,0 +1,7 @@
+env
+key.ini
+.DS_Store
+__pycache__
+pyvenv.cfg
+crawler
+server

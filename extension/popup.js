@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   submitButton.addEventListener("click", function () {
     console.log("Submit button clicked");
-    var userMessage = userInput.value;
-    conversation.innerHTML += `<div class="user-message">${userMessage}</div>`;
+    var question = userInput.value;
+    conversation.innerHTML += `<div class="user-message">${question}</div>`;
     userInput.value = "";
 
     // Scroll to the bottom
@@ -46,8 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         (results) => {
           var payload = {
-            conversation: userMessage,
-            url: activeTabURL,
+            question: question,
           };
 
           chat_with_chatbot(payload, function (chatbotResponse) {
@@ -68,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function chat_with_chatbot(payload, callback) {
   console.log("Inside chat_with_chatbot");
-  fetch("http://127.0.0.1:5000/hello", {
+  fetch("http://127.0.0.1:5000/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

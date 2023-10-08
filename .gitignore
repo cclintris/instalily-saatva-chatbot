@@ -3,5 +3,6 @@ key.ini
 .DS_Store
 __pycache__
 pyvenv.cfg
+processed
+text
 crawler
-server

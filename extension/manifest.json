@@ -12,10 +12,12 @@
     "sidePanel",
     "tabs"
   ],
+  "icons": {
+    "16": "images/logo.png"
+  },
   "host_permissions": [
     "*://*/*"
   ],
-  "icons": {},
   "background": {
     "service_worker": "service-worker.js"
   },

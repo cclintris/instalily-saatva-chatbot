@@ -19,6 +19,7 @@ def chat():
     
     return response
 
+# only for test usage, deprecated
 @app.route('/hello', methods=['POST'])
 def hello():
     response_text = 'hello saatva chatbot'
@@ -31,4 +32,3 @@ def hello():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-    

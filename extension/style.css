@@ -36,12 +36,23 @@ h2 {
 }
 
 .user-message,
-.chatbot-message {
+.chatbot-message,
+.typing-indicator {
   padding: 15px;
   margin: 10px;
   border-radius: 60px;
   position: relative;
+
+  /* width: 30em; */
+  /* word-wrap: break-word;
+  animation: type 4s steps(60, end); */
 }
+
+/* @keyframes type {
+  from {
+    width: 0;
+  }
+} */
 
 .user-message {
   background-color: #ccf6d5;

@@ -23,11 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     conversation.scrollTop = conversation.scrollHeight;
 
     // Create and append typing indicator to conversation
-    var typingIndicator = document.createElement("div");
-    typingIndicator.id = "typing-indicator";
-    typingIndicator.innerHTML =
-      "<span><strong>SaatvaAI:</strong> is typing...</span>";
-    conversation.appendChild(typingIndicator);
+    var typeIndicator = document.createElement("div");
+    typeIndicator.id = "typing-indicator";
+    typeIndicator.classList.add("typing-indicator");
+    typeIndicator.innerHTML =
+      "<span><strong>SaatvaAI: </strong>One moment...</span>";
+    conversation.appendChild(typeIndicator);
 
     // Scroll to show typing indicator
     conversation.scrollTop = conversation.scrollHeight;

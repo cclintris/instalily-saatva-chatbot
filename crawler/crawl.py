@@ -13,7 +13,7 @@ import openai
 ################################################################################
 
 # Regex pattern to match a URL
-HTTP_URL_PATTERN = r'^https://www\.saatva\.com/(mattresses|furniture|bedding)/$ # only match the three categories'
+HTTP_URL_PATTERN = r'^https://www\.saatva\.com/(mattresses|furniture|bedding)/$ # match three categories'
 
 # Load API key from key.ini
 config = configparser.ConfigParser()

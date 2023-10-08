@@ -25,6 +25,7 @@
     "default_path": "sidePanel.html"
   },
   "action": {
+    "default_popup": "sidePanel.html",
     "default_title": "SaatvaAI - Your AI powered Companion"
   }
 }

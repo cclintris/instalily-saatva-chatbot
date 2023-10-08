@@ -1,21 +1,37 @@
+const welcomeMessage =
+  "Hi! I am SaatvaAI, an AI powered chatbot to answer your questions about Saatva. Feel free to ask me anything!";
+
+const SERVER_ENDPOINT = "http://127.0.0.1:5000";
+
+let conversation = document.getElementById("conversation");
+let userInput = document.getElementById("user-input");
+let submitButton = document.getElementById("submit-button");
+let clearConversationButton = document.getElementById(
+  "clear-conversation-button"
+);
+let clearInputButton = document.getElementById("clear-input-button");
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM Content Loaded");
-  var conversation = document.getElementById("conversation");
-  var userInput = document.getElementById("user-input");
-  var submitButton = document.getElementById("submit-button");
 
-  addIntroMessage();
+  conversation.innerHTML += `<div class="chatbot-message">${welcomeMessage}</div>`;
 
   userInput.addEventListener("keyup", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
       submitButton.click();
+      clearInputButton.disabled = true;
+      submitButton.disabled = true;
     }
   });
 
   submitButton.addEventListener("click", function () {
     console.log("Submit button clicked");
-    var question = userInput.value;
+
+    clearInputButton.disabled = true;
+    submitButton.disabled = true;
+
+    let question = userInput.value;
     conversation.innerHTML += `<div class="user-message">${question}</div>`;
     userInput.value = "";
 
@@ -23,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     conversation.scrollTop = conversation.scrollHeight;
 
     // Create and append typing indicator to conversation
-    var typeIndicator = document.createElement("div");
+    let typeIndicator = document.createElement("div");
     typeIndicator.id = "typing-indicator";
     typeIndicator.classList.add("typing-indicator");
     typeIndicator.innerHTML =
@@ -36,8 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get the URL of the active tab
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       console.log("Inside chrome.tabs.query");
-      var activeTab = tabs[0];
-      var activeTabURL = activeTab.url;
+      let activeTab = tabs[0];
+      let activeTabURL = activeTab.url;
       console.log("Active tab URL:", activeTabURL);
 
       chrome.scripting.executeScript(
@@ -46,13 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
           function: stub,
         },
         (results) => {
-          var payload = {
+          let payload = {
             question: question,
           };
 
-          chat_with_chatbot(payload, function (chatbotResponse) {
+          chat(payload, function (chatbotResponse) {
             // Remove typing indicator
-            conversation.removeChild(typingIndicator);
+            conversation.removeChild(typeIndicator);
 
             // Append chatbot's reply to conversation
             conversation.innerHTML += `<div class="chatbot-message"><span class="chatbot-label"><strong>SaatvaAI:</strong></span> ${chatbotResponse}</div>`;
@@ -66,9 +82,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function chat_with_chatbot(payload, callback) {
+clearConversationButton.addEventListener("click", function () {
+  console.log("Clear Conversation button clicked");
+  conversation.innerHTML = `<div class="chatbot-message">${welcomeMessage}</div>`;
+});
+
+clearInputButton.addEventListener("click", function () {
+  console.log("Clear Input button clicked");
+  userInput.value = "";
+  clearInputButton.disabled = true;
+  submitButton.disabled = true;
+});
+
+document.addEventListener("input", function () {
+  console.log("User inputs");
+  let clearInputButton = document.getElementById("clear-input-button");
+  let submitButton = document.getElementById("submit-button");
+  let input = document.getElementById("user-input");
+  if (input.value === "") {
+    clearInputButton.disabled = true;
+    submitButton.disabled = true;
+  } else {
+    clearInputButton.disabled = false;
+    submitButton.disabled = false;
+  }
+});
+
+function chat(payload, callback) {
   console.log("Inside chat_with_chatbot");
-  fetch("http://127.0.0.1:5000/chat", {
+  fetch(`${SERVER_ENDPOINT}/chat`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -85,13 +127,7 @@ function scrollToBottom() {
   conversationDiv.scrollTop = conversationDiv.scrollHeight;
 }
 
-// Call this function every time a new message is added.
+// Scroll to bottom every time a new message is added.
 scrollToBottom();
-
-function addIntroMessage() {
-  const welcomeMessage =
-    "Hi! I am SaatvaAI, an AI powered chatbot to answer your questions about Saatva. Feel free to ask me anything!";
-  conversation.innerHTML += `<div class="chatbot-message">${welcomeMessage}</div>`;
-}
 
 function stub() {}

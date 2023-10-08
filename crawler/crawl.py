@@ -138,9 +138,9 @@ def crawl(url):
             with open('text/'+local_domain+'/'+url[8:].replace("/", "_") + ".txt", "w", encoding="UTF-8") as f:
                 response = requests.get(url)
                 response_as_string = str(response.content)  # Convert the entire Response object's content to a string
-                clean_html_content = re.sub(r'<.*?>|function|var|return|for|while|if|else|document|window|class|style|[^\w\s.,!?;]', ' ', response_as_string)
+                clean_html_content = re.sub(r'<.*?>|function|let|return|for|while|if|else|document|window|class|style|[^\w\s.,!?;]', ' ', response_as_string)
                 clean_html = re.sub(r'<.*?>', ' ', clean_html_content)
-                js_keywords = r'\b(function|var|let|const|return|for|while|do|switch|case|break|continue|if|else|true|false|null|undefined)\b'
+                js_keywords = r'\b(function|let|let|const|return|for|while|do|switch|case|break|continue|if|else|true|false|null|undefined)\b'
                 clean_js = re.sub(js_keywords, ' ', clean_html)
                 css_keywords = r'\b(style|color|background|border|margin|padding|font)\b'
                 clean_css = re.sub(css_keywords, ' ', clean_js)

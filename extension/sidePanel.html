@@ -12,8 +12,13 @@
       id="user-input"
       type="text"
       placeholder="Ask anything about Saatva !"
+      onkeyup="toggleInputButton()"
     />
-    <button id="submit-button">Send</button>
+    <div id="button-holder">
+      <button id="submit-button" disabled>Send</button>
+      <button id="clear-conversation-button">Clear Conversation</button>
+      <button id="clear-input-button" disabled>Clear Input</button>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SaatvaAI",
   "version": "1.0",
-  "description": "SaatvaAI, a AT powered chrome extension to answer your questions about Saatva.com",
+  "description": "SaatvaAI, an AI powered chrome extension to answer your questions about Saatva.com.",
   "permissions": [
     "storage",
     "webNavigation",
@@ -22,10 +22,10 @@
     "service_worker": "service-worker.js"
   },
   "side_panel": {
-    "default_path": "sidepanel.html"
+    "default_path": "sidePanel.html"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "SaatvaAI - Your Saatva AI Companion"
+    "default_title": "SaatvaAI - Your AI powered Companion"
   }
 }

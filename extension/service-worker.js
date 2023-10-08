@@ -10,20 +10,18 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
   const url = new URL(tab.url);
   // Enables the side panel on saatva.com
   if (url.origin === SAATVA_ORIGIN) {
+    console.log("automatically open extension");
     await chrome.sidePanel.setOptions({
       tabId,
-      path: "sidepanel.html",
+      path: "sidePanel.html",
       enabled: true,
     });
   } else {
     // Disables the side panel on all other sites
+    console.log("automatically closes extension");
     await chrome.sidePanel.setOptions({
       tabId,
       enabled: false,
     });
   }
 });
-
-// chrome.action.onClicked.addListener(function () {
-//   chrome.tabs.create({ url: chrome.runtime.getURL("popup.html") });
-// });

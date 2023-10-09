@@ -62,7 +62,7 @@ What kinds of beddings are available? What are the price ranges?
 Can you tell me more about the king sized mattresses?
 ```
 
-For a demo and a more thorough walkthrough of the `SaatvaAI chatbot` extension watch the video [Walkthrough of the SaatvaAI chatbot extension](https://www.loom.com/share/c11defa9ed2c47b39b85fb46162e6bc9?sid=8eb57575-8962-4abd-b512-c19f223d9551).
+For a demo and a more thorough walkthrough of the `SaatvaAI chatbot` extension watch the video [Walkthrough of the SaatvaAI chatbot extension](https://www.loom.com/share/ede115f670864e3a9275b4ef8d6474ae?sid=5778c652-1b55-49ca-b25a-9a90694d6310).
 
 ## References
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a manual to guide you through using the `Saatva Chatbot` chrome extension locally on your computer. 
+This is a manual to guide you through using the `Saatva Chatbot` chrome extension locally on your computer.
 
 The `Saatva Chatbot` extension is built on top of the `Chrome Side Panel`, and leverages LLM model `text-davinci-003` as the chat service, focused on answering your questions and concerns about an e-commerce website [Saatva.com](https://www.saatva.com/).
 
@@ -62,7 +62,7 @@ What kinds of beddings are available? What are the price ranges?
 Can you tell me more about the king sized mattresses?
 ```
 
-For a demo and a more thorough walkthrough of the `SaatvaAI chatbot` extension watch the video [Walkthrough of the SaatvaAI chatbot extension]().
+For a demo and a more thorough walkthrough of the `SaatvaAI chatbot` extension watch the video [Walkthrough of the SaatvaAI chatbot extension](https://www.loom.com/share/c11defa9ed2c47b39b85fb46162e6bc9?sid=8eb57575-8962-4abd-b512-c19f223d9551).
 
 ## References
 

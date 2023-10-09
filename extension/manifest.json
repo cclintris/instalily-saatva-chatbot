@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "SaatvaAI",
+  "name": "SaatvaAI chatbot",
   "version": "1.0",
   "description": "SaatvaAI, an AI powered chrome extension to answer your questions about Saatva.com.",
   "permissions": [
